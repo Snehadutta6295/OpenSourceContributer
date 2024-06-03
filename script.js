@@ -61,7 +61,8 @@ btnmode.addEventListener("click", function () {
 //API CALL
 function getUserData(gitUrl) {
   fetch(gitUrl)
-    .then((response) => response.json())
+    .then((response) => console.log("response data",response.json()))
+    
     .then((data) => {
       console.log(data);
       updateProfile(data);
@@ -148,32 +149,29 @@ function lightModeProperties() {
 
 //INITIALISE UI
 function init() {
-  //initialise dark-mode variable to false;
-  //darkMode = true -> dark mode enable karna h 
-  //darMode = false -> light mode enable karna h 
+  
   darkMode = false;
 
-  //HW
-// const prefersDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
 
   const value = localStorage.getItem("dark-mode");
 
   if(value === null) {
-    console.log("null k andar");
+    console.log("In Null");
     localStorage.setItem("dark-mode", darkMode);
     lightModeProperties();
   }
   else if(value == "true") {
-    console.log("truer k andar");
+    console.log("In True");
     darkModeProperties();
   }
   else if(value == "false") {
-    console.log("false k andar");
+    console.log("In False");
     lightModeProperties();
   }
 
 
-  //by default, pranaygupta ki info show krre h UI pr
+  //by deafult, My profile display on UI.
   getUserData(url + "Snehadutta6295");
 }
 
