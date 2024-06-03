@@ -61,7 +61,7 @@ btnmode.addEventListener("click", function () {
 //API CALL
 function getUserData(gitUrl) {
   fetch(gitUrl)
-    .then((response) => console.log("response data",response.json()))
+    .then((response) => response.json())
     
     .then((data) => {
       console.log(data);
@@ -157,21 +157,21 @@ function init() {
   const value = localStorage.getItem("dark-mode");
 
   if(value === null) {
-    console.log("In Null");
+    console.log("In null");
     localStorage.setItem("dark-mode", darkMode);
     lightModeProperties();
   }
   else if(value == "true") {
-    console.log("In True");
+    console.log("In true");
     darkModeProperties();
   }
   else if(value == "false") {
-    console.log("In False");
+    console.log("false k andar");
     lightModeProperties();
   }
 
 
-  //by deafult, My profile display on UI.
+  //by default, My profile
   getUserData(url + "Snehadutta6295");
 }
 
